@@ -11,7 +11,8 @@ const store = configureStore({
     cake: cakeReducer,
     sweets: sweetsReducer,
   },
-  middleware: (getDefaultMiddle) => getDefaultMiddle().concat(logger),
+  // prepend=> يُضاف Middleware إلى بداية القائمة بدلًا من نهايتها، وهذا يوفر نفس ميزة الحفاظ على الأنواع.
+  middleware: (getDefaultMiddle) => getDefaultMiddle().prepend(logger),
 });
 
 module.exports = store;
