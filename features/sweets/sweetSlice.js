@@ -13,6 +13,16 @@ const sweetSlice = createSlice({
         },
         increNum: (state, action)=> {
             state.totalOfSweets += action.payload;
+        },
+        // extrReducer: {
+        //     ["cake/sell"]: (state)=> {
+        //         state.totalOfSweets--;
+        //     }
+        // }
+        extraReducer: (builder)=> {
+            builder.addCase(cakeActions.sell, (state)=> {
+                state.totalOfSweets--;
+            })
         }
     }
 })
